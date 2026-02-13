@@ -1,0 +1,26 @@
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name") || "My Love";
+let score = 0;
+
+function spawn(){
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random()*window.innerWidth+"px";
+  h.style.top = Math.random()*window.innerHeight+"px";
+
+  h.onclick = () => {
+    score++;
+    document.getElementById("score").innerText = score;
+    h.remove();
+    if(score === 5){
+      window.location.href = `proposal.html?name=${name}`;
+    }
+  };
+
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),2000);
+}
+setInterval(spawn,800);
+</script>

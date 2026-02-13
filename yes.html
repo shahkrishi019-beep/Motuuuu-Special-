@@ -1,0 +1,19 @@
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name") || "My Love";
+
+document.getElementById("loveText").innerText =
+`Hehehe… I knew that, ${name} 😘❤️`;
+
+document.getElementById("letterText").innerHTML =
+`Dear ${name} 💖,<br><br>
+You make my heart smile every day 💑  
+Thank you for being my comfort and happiness 💕<br><br>
+Forever yours 🐻‍❣️`;
+
+function openLetter(){popup.style.display="block";}
+function closeLetter(){popup.style.display="none";}
+function goGame(){
+  window.location.href = `game.html?name=${name}`;
+}
+</script>
